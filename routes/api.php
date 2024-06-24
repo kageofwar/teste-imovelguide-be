@@ -20,4 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('corretores', [CorretorController::class, 'index']);
+Route::get('corretor/{id}', [CorretorController::class, 'search']);
 Route::post('corretor', [CorretorController::class, 'store']);
+Route::post('corretor/{id}', [CorretorController::class, 'edit']);
+Route::delete('corretor/{id}', [CorretorController::class, 'delete']);

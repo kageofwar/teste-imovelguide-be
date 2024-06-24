@@ -13,6 +13,12 @@ class CorretorController extends Controller
         return $corretores;
     }
 
+    public function search($id) {
+        $corretor = Corretor::findOrFail($id);
+
+        return $corretor;
+    }
+
     public function store(Request $request) {
         $corretor = new Corretor();
 
@@ -21,5 +27,21 @@ class CorretorController extends Controller
         $corretor->creci = $request->creci;
 
         $corretor->save();
+    }
+
+    public function edit(Request $request, $id) {
+        $corretor = Corretor::findOrFail($id);
+
+        $corretor->name = $request->name;
+        $corretor->cpf = $request->cpf;
+        $corretor->creci = $request->creci;
+
+        $corretor->save();
+    }
+
+    public function delete($id){
+        $corretor = Corretor::findOrFail($id);
+
+        $corretor->delete();
     }
 }

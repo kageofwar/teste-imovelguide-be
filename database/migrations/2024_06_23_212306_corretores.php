@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('corretors', function (Blueprint $table) {
+        Schema::create('corretores', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('cpf');
+            $table->biginteger('cpf');
             $table->integer('creci');
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('corretors');
+        Schema::dropIfExists('corretores');
     }
 };
